@@ -468,29 +468,67 @@ h6 {
 /* Features Grid */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Default to 1 column for mobile acts as fallback */
+    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+}
+
+@media (min-width: 600px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 for tablets */
+    }
+}
+
+@media (min-width: 1100px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2x2 layout on desktop */
+        max-width: 1000px;
+        /* Limit width to keep cards from getting too stretched */
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .feature-card {
     background: rgba(255, 255, 255, 0.03);
-    /* Subtle card bg */
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;
     padding: var(--spacing-lg);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 189, 239, 0.1), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(0, 189, 239, 0.3);
-    /* Primary highlight on hover */
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary-brand);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 189, 239, 0.2);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+    /* Show gradient on hover */
 }
 
 .card-icon {
@@ -1084,12 +1122,69 @@ h6 {
     background-clip: text;
     /* Standard prop */
 }
+
 /* Levitation Animation for Form */
 @keyframes levitate {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .form-container {
     animation: levitate 6s ease-in-out infinite;
+}
+
+/* Standardization of H2 */
+h2,
+.section-header h2,
+.reconnect-content h2,
+.final-form-wrapper h2 {
+    font-size: 2.8rem;
+    /* Unified large size */
+    line-height: 1.1;
+}
+
+/* Updated Hero Title */
+.hero-title {
+    font-size: 3.5rem;
+    /* Larger than before (2.5rem) */
+    font-weight: 800;
+    /* Thicker */
+    color: var(--white);
+    /* Default color */
+    background: none;
+    /* Remove old text gradient on full title */
+    -webkit-text-fill-color: initial;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Pop against dynamic bg */
+}
+
+/* Highlight 'Bit24' in Hero */
+.highlight-brand {
+    background: linear-gradient(135deg, #00BDEF 0%, #65f0ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    /* Ensure gradient applies nicely */
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+        /* Responsive adjustment */
+    }
+
+    h2,
+    .section-header h2,
+    .reconnect-content h2,
+    .final-form-wrapper h2 {
+        font-size: 2rem;
+    }
 }
