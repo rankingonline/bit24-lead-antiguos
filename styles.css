@@ -750,12 +750,77 @@ h6 {
     margin-bottom: var(--spacing-lg);
 }
 
+/* Gradient Animation */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Final Form - Highlighting but not overwhelming */
 .final-form {
     text-align: left;
-    background: rgba(255, 255, 255, 0.02);
-    padding: var(--spacing-lg);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Deep Rich Gradient (Navy to Dark Primary) */
+    background: linear-gradient(135deg, #133561 0%, #04637d 100%);
+    background-size: 200% 200%;
+    /* Enable movement */
+    padding: var(--spacing-xl);
+    border-radius: 30px;
+    border: 1px solid rgba(0, 189, 239, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 20, 40, 0.6);
+    position: relative;
+    overflow: hidden;
+    animation: gradient-shift 6s ease infinite;
+}
+
+/* Removed pattern overlay as requested */
+/* .final-form::before was here */
+
+/* Revert text colors to light for dark background */
+.final-form label {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.final-form input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+}
+
+.final-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.final-form input:focus {
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 3px rgba(0, 189, 239, 0.3);
+    border-color: var(--primary-brand);
+}
+
+/* Button needs to pop against dark cyan */
+/* Button needs to pop against dark cyan */
+.final-form .cta-button {
+    background: var(--white);
+    color: var(--secondary-brand);
+    /* Navy text */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 56px;
+    /* Increased separation */
+}
+
+.final-form .cta-button:hover {
+    background: #f0f7fa;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 189, 239, 0.4);
 }
 
 .form-grid {
@@ -1037,20 +1102,91 @@ h6 {
     padding-top: 20px;
 }
 
-/* Last Push CTA */
+/* Last Push CTA - Floating Card */
 .last-push-section {
-    padding: var(--spacing-lg) var(--spacing-md);
-    background: var(--bg-dark-main);
-    text-align: center;
+    padding: 56px 20px;
+    /* Outer spacing */
+    background: var(--bg-dark-surface);
+    border-top: none;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 10px 40px rgba(0, 189, 239, 0.3);
+        transform: translateY(0);
+    }
+
+    50% {
+        box-shadow: 0 20px 60px rgba(0, 189, 239, 0.5);
+        transform: translateY(-5px);
+    }
+}
+
+.last-push-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: var(--spacing-lg);
+    text-align: left;
+
+    /* Card Styles */
+    background: linear-gradient(135deg, #00BDEF 0%, #009AC2 100%);
+    padding: 40px 60px;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(1, 105, 134, 0.3);
+    animation: pulse-glow 4s ease-in-out infinite;
 }
 
 .last-push-section h3 {
+    color: var(--secondary-brand);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    max-width: 500px;
+    margin-left: 0;
+    margin-right: 0;
+    line-height: 1.2;
+}
+
+.highlight-card-brand {
+    color: var(--secondary-brand);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0 10px;
+    border-radius: 8px;
+    display: inline-block;
+    transform: skewX(-10deg);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Button for Primary Card (Secondary Navy) */
+.last-push-section .cta-button {
+    background: var(--secondary-brand);
     color: var(--white);
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-md);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    box-shadow: 0 5px 15px rgba(14, 32, 56, 0.3);
+}
+
+.last-push-section .cta-button:hover {
+    background: #152B46;
+    /* Slightly lighter navy */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(14, 32, 56, 0.4);
+}
+
+/* On mobile, stack them */
+@media (max-width: 768px) {
+    .last-push-section .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .last-push-section h3 {
+        margin-bottom: var(--spacing-md);
+    }
 }
 
 .text-center {
@@ -1118,7 +1254,7 @@ h6 {
 }
 
 .footer-logo-img {
-    height: 35px;
+    height: 56px;
     /* Slightly smaller for footer */
     width: auto;
     opacity: 0.9;
