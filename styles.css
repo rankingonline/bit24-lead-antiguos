@@ -235,63 +235,134 @@ h6 {
 /* Reconnect Section */
 .reconnect-section {
     position: relative;
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: 80px var(--spacing-md);
     background: var(--bg-dark-main);
-    /* Keep dark theme continuity */
     z-index: 10;
+    overflow: hidden;
+}
+
+/* Subtle accent background for the whole section */
+.reconnect-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 50%, rgba(0, 189, 239, 0.08), transparent 40%);
+    pointer-events: none;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
+    /* Ensure content above bg */
 }
 
 .reconnect-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    align-items: center;
+    gap: 60px;
+    /* Increased gap */
+    align-items: flex-start;
+    /* Align top for better reading flow if uneven */
 }
 
 /* Text Content */
 .reconnect-content {
     color: var(--gray-light);
+    padding-right: var(--spacing-md);
 }
 
 .reconnect-content h2 {
-    font-size: 2rem;
+    font-size: 2.8rem;
+    /* Much larger */
+    line-height: 1.1;
     color: var(--white);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 32px;
+    background: linear-gradient(90deg, #fff, #d2deeb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .text-block p {
-    margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
-    line-height: 1.7;
+    margin-bottom: 24px;
+    font-size: 1.15rem;
+    /* Larger body text */
+    line-height: 1.8;
 }
 
 .text-block strong {
     color: var(--primary-brand);
+    font-weight: 700;
 }
 
 .highlight-text {
+    font-size: 1.25rem;
     font-weight: 500;
     color: var(--white);
     border-left: 4px solid var(--primary-brand);
-    padding-left: var(--spacing-md);
-    margin-top: var(--spacing-md);
+    padding-left: 24px;
+    margin-top: 40px;
+    background: linear-gradient(90deg, rgba(0, 189, 239, 0.1) 0%, transparent 100%);
+    padding: 16px 24px;
+    /* More robust box feel */
+    border-radius: 0 12px 12px 0;
 }
 
 /* Form Container */
+/* Form Container with Rotating Border */
 .form-container {
-    background: var(--bg-dark-surface);
-    /* Slightly lighter than main bg */
+    position: relative;
     padding: var(--spacing-lg);
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
+    background: transparent;
+    /* Handled by ::after to allow border effect */
+    overflow: hidden;
+    /* Clip the rotating gradient */
+    z-index: 1;
+    /* Establish stacking context */
+}
+
+/* Rotating Gradient Border */
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent,
+            transparent,
+            transparent,
+            var(--primary-brand));
+    animation: rotate-border 4s linear infinite;
+    z-index: -2;
+}
+
+/* Inner Background (The Card) */
+.form-container::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    /* Border width */
+    background: var(--bg-dark-surface);
+    border-radius: 18px;
+    /* Slightly less than container */
+    z-index: -1;
+}
+
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .conversion-form h3 {
@@ -962,4 +1033,63 @@ h6 {
     /* Slightly larger than text for balance */
     color: var(--primary-brand);
     /* Brand color for icons */
+}
+
+/* Dynamic Rotating Hero Background */
+@keyframes spin-gradient {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150vmax;
+    /* Ensure coverage */
+    height: 150vmax;
+    background: conic-gradient(from 0deg,
+            transparent 0deg,
+            var(--primary-brand) 40deg,
+            transparent 120deg,
+            var(--secondary-brand) 220deg,
+            transparent 300deg,
+            var(--primary-brand) 340deg,
+            transparent 360deg);
+    opacity: 0.15;
+    /* Subtle washing effect */
+    animation: spin-gradient 25s linear infinite;
+    z-index: 0;
+    /* Behind content (10) and shapes (1) */
+    pointer-events: none;
+    filter: blur(80px);
+    /* Smooth gradient blend */
+}
+
+/* Ensure shapes stay behind content but blend with new bg */
+.bg-shape {
+    opacity: 0.4;
+    z-index: 0;
+}
+
+/* Lint fix: standard property background-clip */
+.reconnect-content h2,
+.hero-title {
+    background-clip: text;
+    /* Standard prop */
+}
+/* Levitation Animation for Form */
+@keyframes levitate {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.form-container {
+    animation: levitate 6s ease-in-out infinite;
 }
