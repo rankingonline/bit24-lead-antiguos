@@ -52,5 +52,27 @@ Usamos la técnica de saturación para evitar grises muertos, inyectando un poco
 - CSS3 (Vanilla)
 - JavaScript
 
-## Estructura del Proyecto
-(Pendiente de definición detallada)
+## Novedades de Diseño: "Dinámico & Premium"
+Hemos evolucionado el diseño hacia una estética más viva y sofisticada:
+
+### 1. Header Flotante (Glassmorphism)
+- **Estilo**: Barra blanca flotante con efecto *backdrop-blur*.
+- **Funcionalidad**: Incluye accesos directos de contacto (teléfono/email) y un CTA claro, ocultando elementos secundarios en móvil.
+
+### 2. Animaciones Avanzadas
+- **Hero**: Fondo con gradiente cónico rotativo (`conic-gradient`) para dar profundidad atmosférica.
+- **Features Grid**:
+  - Efecto "Ola" automático: Las tarjetas se iluminan secuencialmente en un ciclo infinito.
+  - Hover Inteligente: Al interactuar, la animación automática se pausa y la tarjeta seleccionada destaca con un gradiente interno cyan.
+- **Comunidad**: Imágenes flotantes con efecto de brillo (*shine*) al pasar el cursor.
+- **Formulario Final**: Fondo con gradiente "respirando" (animación de posición suave) en tonos Navy/petróleo.
+- **Last Push CTA**: Tarjeta flotante con animación de pulso y levitación.
+
+### 3. Estructura y Layout
+- **Grid Responsivo 2x2**: La sección de características mantiene 2 columnas en escritorio para mejor equilibrio visual.
+- **Highlighting**: Uso estratégico de la etiqueta `<span class="highlight-card-brand">Bit24</span>` para resaltar la marca con un estilo de "sticker" pop.
+
+## Estructura de Archivos
+- `index.html`: Estructura semántica con secciones claramente delimitadas (Hero, Benefits, Community, FAQ, Final Form, CTA).
+- `styles.css`: Hoja de estilos única organizada por secciones, utilizando variables CSS para mantener la consistencia del sistema de diseño.
+- `assets/`: Directorio para logotipos e imágenes.
