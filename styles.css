@@ -231,11 +231,13 @@ h6 {
         font-size: 2rem;
     }
 }
+
 /* Reconnect Section */
 .reconnect-section {
     position: relative;
     padding: var(--spacing-xl) var(--spacing-md);
-    background: var(--bg-dark-main); /* Keep dark theme continuity */
+    background: var(--bg-dark-main);
+    /* Keep dark theme continuity */
     z-index: 10;
 }
 
@@ -283,7 +285,8 @@ h6 {
 
 /* Form Container */
 .form-container {
-    background: var(--bg-dark-surface); /* Slightly lighter than main bg */
+    background: var(--bg-dark-surface);
+    /* Slightly lighter than main bg */
     padding: var(--spacing-lg);
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
@@ -348,11 +351,11 @@ h6 {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
-    
+
     .reconnect-content {
         text-align: center;
     }
-    
+
     .highlight-text {
         border-left: none;
         border-top: 4px solid var(--primary-brand);
@@ -399,7 +402,8 @@ h6 {
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.03); /* Subtle card bg */
+    background: rgba(255, 255, 255, 0.03);
+    /* Subtle card bg */
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;
     padding: var(--spacing-lg);
@@ -414,7 +418,8 @@ h6 {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.06);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(0, 189, 239, 0.3); /* Primary highlight on hover */
+    border-color: rgba(0, 189, 239, 0.3);
+    /* Primary highlight on hover */
 }
 
 .card-icon {
@@ -431,9 +436,11 @@ h6 {
     /* Simple visual placeholder for templates icon */
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 24px; height: 32px;
+    width: 24px;
+    height: 32px;
     border: 2px solid white;
     border-radius: 4px;
 }
@@ -442,9 +449,11 @@ h6 {
     /* Cog/Gear placeholder */
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 28px; height: 28px;
+    width: 28px;
+    height: 28px;
     border: 3px dashed white;
     border-radius: 50%;
 }
@@ -453,7 +462,8 @@ h6 {
     /* Info/Person placeholder */
     content: '?';
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
@@ -465,9 +475,11 @@ h6 {
     /* Connector placeholder */
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px; height: 2px;
+    width: 30px;
+    height: 2px;
     background: white;
     box-shadow: 0 8px 0 white, 0 -8px 0 white;
 }
@@ -493,7 +505,8 @@ h6 {
 /* Community Section */
 .community-section {
     padding: var(--spacing-xl) var(--spacing-md);
-    background: var(--bg-dark-surface); /* Distinct background */
+    background: var(--bg-dark-surface);
+    /* Distinct background */
 }
 
 .community-content {
@@ -546,9 +559,9 @@ h6 {
     align-items: center;
     color: var(--gray-medium);
     font-size: 0.9rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     /* Placeholder pattern */
-    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 10px, transparent 10px, transparent 20px);
+    background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 10px, transparent 10px, transparent 20px);
 }
 
 /* Final Conversion Section */
@@ -575,10 +588,10 @@ h6 {
 
 .final-form {
     text-align: left;
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.02);
     padding: var(--spacing-lg);
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .form-grid {
@@ -588,7 +601,9 @@ h6 {
 }
 
 @media (max-width: 768px) {
-    .community-item, .community-item.reverse {
+
+    .community-item,
+    .community-item.reverse {
         flex-direction: column;
         text-align: center;
     }
@@ -706,7 +721,8 @@ h6 {
     font-weight: 500;
     font-size: 1.1rem;
     color: var(--white);
-    list-style: none; /* Hide default triangle */
+    list-style: none;
+    /* Hide default triangle */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -728,8 +744,9 @@ h6 {
     padding: 0 20px 20px 20px;
     color: var(--gray-light);
     line-height: 1.6;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    margin-top: -10px; /* Pull closer to summary */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: -10px;
+    /* Pull closer to summary */
     padding-top: 20px;
 }
 
@@ -802,5 +819,147 @@ h6 {
 
 /* Adjust copy color because gray-dark is too dark for black bg */
 .footer-copy p {
-    color: #3b5066; 
+    color: #3b5066;
+}
+
+/* Logo Styles */
+.brand-logo {
+    height: 40px;
+    /* Adjust size comfortably for header */
+    width: auto;
+    display: block;
+}
+
+.footer-logo-img {
+    height: 35px;
+    /* Slightly smaller for footer */
+    width: auto;
+    opacity: 0.9;
+}
+
+/* Update Header container to handle image nicely */
+.logo-container {
+    background: rgba(255, 255, 255, 0.05);
+    /* Lighter touch behind logo if png allows it, or transparent */
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    /* Ensure it wraps img tightly */
+}
+
+/* Overwrite previous .logo-placeholder styles if needed or just let them be ignored since class is removed from HTML */
+
+/* Updated Floating White Header */
+.main-header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.65);
+    /* More translucent for glass effect */
+    backdrop-filter: blur(16px) saturate(180%);
+    /* Stronger blur and saturation */
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 999px;
+    padding: 10px 12px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    /* Glassmorphism shadow style */
+    display: block;
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    /* Distinct glass edge */
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    width: 100%;
+}
+
+/* Reset old logo container styles */
+.logo-container {
+    background: none;
+    backdrop-filter: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+.header-cta {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    box-shadow: none;
+    /* Flatter look for header */
+}
+
+/* Ensure Logo fits */
+.brand-logo {
+    height: 32px;
+}
+
+/* Header Right Side Layout */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.contact-info {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-right: var(--spacing-sm);
+}
+
+.contact-link {
+    text-decoration: none;
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--primary-brand);
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        display: none;
+        /* Hide contacts on mobile to save space, keep CTA */
+    }
+}
+
+/* Icon styling and spacing update */
+.contact-info {
+    gap: var(--spacing-lg);
+    /* More air between items */
+    margin-right: var(--spacing-md);
+}
+
+.contact-link {
+    display: flex;
+    /* Centers icon and text */
+    align-items: center;
+    gap: 8px;
+    /* Space between icon and text */
+}
+
+/* Ensure SVG matches text color nicely */
+.contact-link svg {
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Boxicon overrides for alignment */
+.contact-link i {
+    font-size: 1.2rem;
+    /* Slightly larger than text for balance */
+    color: var(--primary-brand);
+    /* Brand color for icons */
 }
